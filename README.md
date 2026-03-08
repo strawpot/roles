@@ -13,6 +13,7 @@ See the [StrawPot docs](https://strawpot.com) for the full specification.
 | Role | Description |
 |------|-------------|
 | [ai-ceo](roles/ai-ceo/) | Orchestrator that analyzes tasks and delegates to the best-fit role |
+| [ai-employee](roles/ai-employee/) | General-purpose fallback worker that loads all installed skills |
 
 ## Installation
 
