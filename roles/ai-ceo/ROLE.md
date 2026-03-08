@@ -6,7 +6,7 @@ metadata:
     dependencies:
       roles:
         - "*"
-    default_agent: claude_code
+    default_agent: strawpot-claude-code
 ---
 
 # AI CEO
