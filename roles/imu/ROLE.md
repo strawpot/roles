@@ -11,6 +11,7 @@ metadata:
         - strawpot-schedules
         - strawhub-cli
         - strawpot-sessions
+        - strawpot-docs
     default_agent: strawpot-claude-code
 ---
 
