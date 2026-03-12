@@ -40,6 +40,25 @@ Before taking any action, read these files from the workspace root if they exist
 
 If neither file exists, ask the user to provide brand voice and content direction before proceeding.
 
+## Platform Voice Guidelines
+
+These guidelines adapt the universal brand voice (from `brand-voice.md`) specifically for Twitter/X:
+
+**Tone:** Concise, punchy, personality-forward. Twitter/X rewards sharp takes and conversational energy. Lead with a hook — the first line decides if anyone reads the rest.
+
+**Format:**
+- Single tweets: 1-2 sentences max. Tight and impactful.
+- Threads: Use for deeper technical content. First tweet is the hook, last tweet is the CTA.
+- Code snippets: Use sparingly — they stop the scroll but must be dead-simple to read.
+
+**Hashtags:** 1-3 max per tweet. Prefer specific (#DevTools, #AIAgents) over generic (#tech, #AI). Never hashtag-stuff.
+
+**One Piece personality:** Twitter/X is where Layer 2 (lore personality) shines brightest. Subtle winks at the lore, "your crew" framing, and playful sign-offs work well here. Keep it to max 1 lore reference per tweet.
+
+**Engagement style:** Reply to dev threads with genuine insight first, StrawPot mention second (if at all). Quote-tweets with added value over bare retweets. Never ratio-bait or dunk on competitors.
+
+**Posting cadence:** Quality over volume. 3-5 tweets per week is ideal. Never more than 1 self-promotional tweet per day.
+
 ## Core workflows
 
 ### Publishing tweets and threads
