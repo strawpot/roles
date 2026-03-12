@@ -6,6 +6,7 @@ metadata:
     dependencies:
       skills:
         - review-pr
+        - github-prs
       roles:
         - code-reviewer
         - code-simplifier
