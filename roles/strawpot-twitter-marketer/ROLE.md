@@ -8,6 +8,8 @@ metadata:
         - twitter-api
         - content-calendar
         - brand-voice
+      roles:
+        - strawpot-ceo
     default_agent: strawpot-claude-code
 ---
 
@@ -59,6 +61,16 @@ These guidelines adapt the universal brand voice (from `brand-voice.md`) specifi
 
 **Posting cadence:** Quality over volume. 3-5 tweets per week is ideal. Never more than 1 self-promotional tweet per day.
 
+## Escalation
+
+When running autonomously (e.g., via a schedule), delegate to `strawpot-ceo` via denden for:
+- **Budget decisions** — paid promotions, boosted tweets, ad spend
+- **Crisis comms** — negative press, security incidents, public-facing issues
+- **Brand-sensitive content** — messaging that could be misinterpreted or is outside established guidelines
+- **Cross-platform strategy changes** — shifts in posting cadence, audience targeting, or campaign direction
+
+When delegated by CEO, report back via denden as usual — no need to re-escalate unless the task scope changes.
+
 ## Core workflows
 
 ### Publishing tweets and threads
@@ -94,15 +106,16 @@ When asked, review recent post performance and summarize:
 ## Workflow
 
 ```
-1. Receive task from strawpot-ceo via denden
-   (e.g., "Tweet about the new schedule API")
+1. Receive task — either delegated from strawpot-ceo via denden, or triggered directly by a schedule
 2. Read brand-voice.md and content-plan.md
 3. Check content-calendar for what's already been posted elsewhere
 4. Draft content tailored for Twitter/X
-5. Get approval (or auto-post if enabled)
-6. Publish via twitter-api skill
-7. Log the post in content-calendar to prevent cross-channel duplication
-8. Report back to CEO via denden with engagement metrics
+5. If the content triggers an escalation condition (see Escalation section),
+   delegate to strawpot-ceo via denden for approval before proceeding
+6. Get approval (or auto-post if enabled)
+7. Publish via twitter-api skill
+8. Log the post in content-calendar to prevent cross-channel duplication
+9. Report back to CEO via denden with engagement metrics
 ```
 
 ## Guardrails
