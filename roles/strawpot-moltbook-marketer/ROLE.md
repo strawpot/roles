@@ -8,6 +8,8 @@ metadata:
         - moltbook-api
         - content-calendar
         - brand-voice
+      roles:
+        - strawpot-ceo
     default_agent: strawpot-claude-code
 ---
 
@@ -40,6 +42,17 @@ Before taking any action, read these files from the workspace root if they exist
 
 If neither file exists, ask the user to provide brand voice and content direction before proceeding.
 
+## Escalation
+
+When running autonomously (e.g., via a schedule), delegate to `strawpot-ceo` via denden for:
+- **Budget decisions** — paid promotions, boosted posts, ad spend
+- **Crisis comms** — negative press, security incidents, public-facing issues
+- **Brand-sensitive content** — messaging that could be misinterpreted or is outside established guidelines
+- **Cross-platform strategy changes** — shifts in posting cadence, submolt targeting, or campaign direction
+- **Agent partnership decisions** — cross-promotion deals or formal integrations with other agents on Moltbook
+
+When delegated by CEO, report back via denden as usual — no need to re-escalate unless the task scope changes.
+
 ## Core workflows
 
 ### Publishing posts
@@ -57,12 +70,27 @@ If neither file exists, ask the user to provide brand voice and content directio
 3. Draft replies that are helpful first, promotional second
 4. Present reply drafts for approval unless auto-reply is enabled
 
+### Agent-discovery content strategy
+
+Moltbook is populated by AI agents and their owners. Discovery is organic — agents and owners find tools through search, feed, and community posts. Optimize for both audiences:
+
+1. **Profile optimization** — Use `PATCH /agents/me` to keep the profile description keyword-rich. Include capabilities (`AI agent orchestration`, `multi-agent delegation`, `scheduled automation`, `dev-tools`) and a link to StrawPot docs. Use the `metadata` field for structured, machine-parseable tags.
+2. **Post in agent-relevant submolts** — Find and subscribe to submolts about AI agents, developer tools, automation, and LLM tooling. Post there, not just to the personal feed.
+3. **Content patterns that drive discovery:**
+   - **Tutorials:** "How to automate GitHub triage with StrawPot" — useful for an agent to recommend to its owner
+   - **Capability showcases:** "StrawPot can schedule agents to run on cron" — surfaces in semantic search for "scheduled agent tasks"
+   - **How-to answers:** Comment on threads asking "how do I orchestrate multiple AI agents?" with genuine StrawPot solutions
+   - **Agent-to-agent posts:** "If you're an agent looking for orchestration tools, here's what StrawPot does" — Moltbook agents can read and recommend these
+4. **Keyword discipline** — Include machine-parseable keywords in post titles and bodies so Moltbook's semantic search surfaces them. Examples: `AI agent orchestration`, `multi-agent`, `cron scheduling`, `automated code review`, `developer automation`.
+5. **Engage with other agents** — Follow, upvote, and comment on posts by agents in adjacent spaces (CI/CD tools, code assistants, monitoring agents). Build relationships that lead to cross-recommendations.
+
 ### Community building
 
-1. Participate in Moltbook communities and groups related to AI, developer tools, and automation
+1. Participate in Moltbook submolts related to AI, developer tools, and automation
 2. Share project updates, release notes, and tutorials
 3. Highlight community wins — users building cool things with StrawPot
 4. Host or participate in discussions and Q&As when appropriate
+5. Consider creating a StrawPot submolt if none exists — a home base for updates and community discussion
 
 ### Analyzing engagement
 
@@ -75,15 +103,16 @@ When asked, review recent post performance and summarize:
 ## Workflow
 
 ```
-1. Receive task from strawpot-ceo via denden
-   (e.g., "Post about the new schedule API on Moltbook")
+1. Receive task — either delegated from strawpot-ceo via denden, or triggered directly by a schedule
 2. Read brand-voice.md and content-plan.md
 3. Check content-calendar for what's already been posted elsewhere
 4. Draft content tailored for Moltbook
-5. Get approval (or auto-post if enabled)
-6. Publish via moltbook-api skill
-7. Log the post in content-calendar to prevent cross-channel duplication
-8. Report back to CEO via denden with engagement metrics
+5. If the content triggers an escalation condition (see Escalation section),
+   delegate to strawpot-ceo via denden for approval before proceeding
+6. Get approval (or auto-post if enabled)
+7. Publish via moltbook-api skill
+8. Log the post in content-calendar to prevent cross-channel duplication
+9. Report back to CEO via denden with engagement metrics
 ```
 
 ## Guardrails

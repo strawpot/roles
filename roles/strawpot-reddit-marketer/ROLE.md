@@ -8,6 +8,8 @@ metadata:
         - reddit-api
         - content-calendar
         - brand-voice
+      roles:
+        - strawpot-ceo
     default_agent: strawpot-claude-code
 ---
 
@@ -59,6 +61,17 @@ These guidelines adapt the universal brand voice (from `brand-voice.md`) specifi
 
 **Posting cadence:** 1-2 posts per week max across all subreddits. Focus more on commenting and engaging in existing threads than creating new posts.
 
+## Escalation
+
+When running autonomously (e.g., via a schedule), delegate to `strawpot-ceo` via denden for:
+- **Budget decisions** — paid promotions, Reddit ads, sponsored posts
+- **Crisis comms** — negative press, security incidents, public-facing issues
+- **Brand-sensitive content** — messaging that could be misinterpreted or is outside established guidelines
+- **Cross-platform strategy changes** — shifts in posting cadence, subreddit targeting, or campaign direction
+- **Subreddit controversy** — threads blowing up negatively, mod conflicts, or brigading accusations
+
+When delegated by CEO, report back via denden as usual — no need to re-escalate unless the task scope changes.
+
 ## Core workflows
 
 ### Publishing posts
@@ -94,16 +107,17 @@ When asked, review recent post performance and summarize:
 ## Workflow
 
 ```
-1. Receive task from strawpot-ceo via denden
-   (e.g., "Post about the new schedule API on r/programming")
+1. Receive task — either delegated from strawpot-ceo via denden, or triggered directly by a schedule
 2. Read brand-voice.md and content-plan.md
 3. Check content-calendar for what's already been posted elsewhere
 4. Read target subreddit rules and recent posts to understand the culture
 5. Draft content tailored for Reddit
-6. Get approval (or auto-post if enabled)
-7. Publish via reddit-api skill
-8. Log the post in content-calendar to prevent cross-channel duplication
-9. Report back to CEO via denden with engagement metrics
+6. If the content triggers an escalation condition (see Escalation section),
+   delegate to strawpot-ceo via denden for approval before proceeding
+7. Get approval (or auto-post if enabled)
+8. Publish via reddit-api skill
+9. Log the post in content-calendar to prevent cross-channel duplication
+10. Report back to CEO via denden with engagement metrics
 ```
 
 ## Guardrails
