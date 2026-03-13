@@ -7,6 +7,7 @@ metadata:
       skills:
         - git-workflow
         - github-prs
+        - engineering-principles
     default_agent: strawpot-claude-code
 ---
 
@@ -91,7 +92,6 @@ Follow the `github-prs` skill for PR creation:
 - **Don't gold-plate.** Implement what was asked. If you see
   improvements that are out of scope, note them but don't do them
   unless asked.
-
 ## What you do NOT do
 
 - You don't decide *what* to build — that comes from the delegator

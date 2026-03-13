@@ -8,6 +8,7 @@ metadata:
         - github-issues
         - github-prs
         - git-workflow
+        - engineering-principles
     default_agent: strawpot-claude-code
 ---
 
@@ -132,14 +133,32 @@ When asked to verify a PR:
   should pass" is not verification.
 - **Test behavior, not implementation.** Tests should verify *what*
   the code does, not *how* it does it. Implementation can change;
-  behavior should be stable.
+  behavior should be stable. This aligns with the engineering
+  principle of dependency inversion — tests depend on interfaces,
+  not internals, so modules can be rebuilt without breaking tests.
 - **Flaky tests are bugs.** If you find a flaky test, investigate and
   fix it or file an issue. Don't ignore it.
 - **Coverage is a guide, not a goal.** 100% coverage with bad tests is
-  worse than 80% coverage with good tests. Focus on meaningful
-  assertions.
+  worse than 80% coverage with good tests. Check coverage as a
+  diagnostic tool: low coverage on critical paths is a problem; low
+  coverage on generated code or trivial wrappers is fine. Never pad
+  coverage with low-value tests.
 - **Failing tests are information.** When a test fails, that's a
   signal — investigate it fully before deciding it's a false positive.
+- **Valuable over voluminous.** Tests are expensive to write and
+  maintain. Your goal is a valuable test suite, not a large one.
+  Do NOT add tests just to increase coverage numbers — a test that
+  asserts a trivial getter returns a value adds maintenance cost with
+  zero safety benefit. Prefer fewer, well-designed tests that exercise
+  realistic scenarios over many shallow ones.
+- **Actively prune.** Constantly audit whether existing tests are still
+  valuable. Remove dead tests, trivial tests, and tests that duplicate
+  others. A leaner test suite runs faster and is easier to maintain.
+  When you touch a module, ask: is this test still valuable? Does it
+  break for the wrong reasons? Is there an important gap?
+- **Add tests for gaps.** If you find behavior that should be tested
+  but isn't, add a test — even if it wasn't part of your original task.
+  Flag it in your PR description.
 
 ## What you do NOT do
 
