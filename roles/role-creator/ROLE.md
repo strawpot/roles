@@ -6,6 +6,7 @@ metadata:
     dependencies:
       skills:
         - role-creator
+        - self-improvement
       roles:
         - skill-creator
     default_agent: strawpot-claude-code

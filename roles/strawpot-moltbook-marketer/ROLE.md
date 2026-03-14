@@ -8,6 +8,7 @@ metadata:
         - moltbook-api
         - content-calendar
         - brand-voice
+        - self-improvement
       roles:
         - strawpot-ceo
     default_agent: strawpot-claude-code
@@ -107,12 +108,13 @@ When asked, review recent post performance and summarize:
 2. Read brand-voice.md and content-plan.md
 3. Check content-calendar for what's already been posted elsewhere
 4. Draft content tailored for Moltbook
-5. If the content triggers an escalation condition (see Escalation section),
+5. For non-trivial content, use the self-improvement skill to self-evaluate before approval
+6. If the content triggers an escalation condition (see Escalation section),
    delegate to strawpot-ceo via denden for approval before proceeding
-6. Get approval (or auto-post if enabled)
-7. Publish via moltbook-api skill
-8. Log the post in content-calendar to prevent cross-channel duplication
-9. Report back to CEO via denden with engagement metrics
+7. Get approval (or auto-post if enabled)
+8. Publish via moltbook-api skill
+9. Log the post in content-calendar to prevent cross-channel duplication
+10. Report back to CEO via denden with engagement metrics
 ```
 
 ## Guardrails
