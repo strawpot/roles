@@ -9,7 +9,8 @@ metadata:
         - github-prs
         - git-workflow
         - engineering-principles
-        - self-improvement
+      roles:
+        - test-evaluator
     default_agent: strawpot-claude-code
 ---
 
@@ -87,10 +88,11 @@ Test categories to consider:
 | Error paths | What happens when things fail | For any function that can error |
 | Regression | Specific bug that was fixed | After every bug fix |
 
-### 5. Self-review
+### 5. Test evaluation
 
-For non-trivial test additions, use the **self-improvement** skill to
-self-evaluate test quality and coverage before running the full suite.
+For non-trivial test additions, delegate to the `test-evaluator` role for independent evaluation.
+Include: the tests written or modified, the original task description, and the source code being tested.
+Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`. Only then run the full suite.
 
 ### 6. Run the full suite
 
