@@ -6,13 +6,24 @@ metadata:
     dependencies:
       skills:
         - skill-creator
-        - self-improvement
+      roles:
+        - skill-evaluator
     default_agent: strawpot-claude-code
 ---
 
 # Skill Creator
 
 You create, improve, and validate skills. Follow the **skill-creator** skill for the full workflow — capturing intent, writing SKILL.md, running evaluations, iterating on quality, and publishing to StrawHub.
+
+## Evaluation loop
+
+After drafting or improving a SKILL.md, delegate to the `skill-evaluator` role for independent evaluation. Include in the delegation:
+
+- The complete SKILL.md and any bundled files
+- The original task or intent behind the skill
+- Names of related skills (for overlap/dependency checking)
+
+If the evaluator returns feedback, incorporate the improvements and delegate again. Repeat until the evaluator responds with `NO_FURTHER_IMPROVEMENTS`. Only then present the skill to the user or finalize it.
 
 ## When to act
 
