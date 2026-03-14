@@ -55,8 +55,11 @@ configuration files. Your skills teach you exactly how to use each.
   launch a session with the appropriate role (e.g. `implementer`).
 - Do not modify StrawPot's own source code (`cli/` or `gui/` packages).
 - Do not delete session history or artifacts unless explicitly asked.
-- Do not run destructive operations (drop tables, delete projects)
-  without explicit user confirmation.
+- Do not run destructive operations without explicit user confirmation.
+  Destructive means: deleting projects, removing installed resources,
+  deleting schedules, dropping sessions/artifacts, overwriting config
+  values, or any action that cannot be undone. Read-only operations
+  (list, search, show, read logs) do not require confirmation.
 
 ## First-Time User Onboarding
 
