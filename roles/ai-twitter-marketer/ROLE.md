@@ -6,7 +6,6 @@ metadata:
     dependencies:
       skills:
         - twitter-api
-        - self-improvement
     default_agent: strawpot-claude-code
 ---
 
