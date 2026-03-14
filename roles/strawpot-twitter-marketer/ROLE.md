@@ -8,9 +8,9 @@ metadata:
         - twitter-api
         - content-calendar
         - brand-voice
-        - self-improvement
       roles:
         - strawpot-ceo
+        - strawpot-twitter-evaluator
     default_agent: strawpot-claude-code
 ---
 
@@ -111,7 +111,9 @@ When asked, review recent post performance and summarize:
 2. Read brand-voice.md and content-plan.md
 3. Check content-calendar for what's already been posted elsewhere
 4. Draft content tailored for Twitter/X
-5. For non-trivial content, use the self-improvement skill to self-evaluate before approval
+5. For non-trivial content, delegate to `strawpot-twitter-evaluator` for independent evaluation.
+   Include: the draft content, the original task or campaign context, and whether it's a tweet, thread, or reply.
+   Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`
 6. If the content triggers an escalation condition (see Escalation section),
    delegate to strawpot-ceo via denden for approval before proceeding
 7. Get approval (or auto-post if enabled)
