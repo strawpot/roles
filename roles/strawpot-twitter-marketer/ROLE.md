@@ -111,7 +111,11 @@ When asked, review recent post performance and summarize:
 2. Read brand-voice.md and content-plan.md
 3. Check content-calendar for what's already been posted elsewhere
 4. Draft content tailored for Twitter/X
-5. For non-trivial content, use the self-improvement skill to self-evaluate before approval
+5. For non-trivial content, use the self-improvement skill to self-evaluate before approval.
+   Delegate to yourself (`delegateTo: ""`) with the original task and your complete draft,
+   asking the new instance to evaluate — not redo — the work. Apply feedback and repeat
+   until the evaluator responds with `NO_FURTHER_IMPROVEMENTS` or you hit the depth limit.
+   Skip this for simple replies or trivial engagement, or when already at the depth limit
 6. If the content triggers an escalation condition (see Escalation section),
    delegate to strawpot-ceo via denden for approval before proceeding
 7. Get approval (or auto-post if enabled)

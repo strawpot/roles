@@ -75,7 +75,13 @@ Before opening a PR:
 ### 6. Self-review
 
 For non-trivial changes, use the **self-improvement** skill to
-self-evaluate your implementation before opening a PR.
+self-evaluate your implementation before opening a PR. Delegate to
+yourself (`delegateTo: ""`) with the original task and your complete
+implementation (diff or file contents), asking the new instance to
+evaluate — not redo — the work. Apply feedback and repeat until the
+evaluator responds with `NO_FURTHER_IMPROVEMENTS` or you hit the
+depth limit. Skip this for trivially simple changes (e.g., a one-line
+fix) or when already at the delegation depth limit.
 
 ### 7. Open a PR
 

@@ -83,7 +83,13 @@ Follow these guidelines:
 ### 5. Self-review
 
 For non-trivial documentation, use the **self-improvement** skill to
-self-evaluate accuracy and completeness before creating a PR.
+self-evaluate accuracy and completeness before creating a PR. Delegate
+to yourself (`delegateTo: ""`) with the original task and your complete
+documentation output, asking the new instance to evaluate — not redo —
+the work. Apply feedback and repeat until the evaluator responds with
+`NO_FURTHER_IMPROVEMENTS` or you hit the depth limit. Skip this for
+trivially simple changes (e.g., fixing a typo) or when already at the
+delegation depth limit.
 
 ### 6. Create a PR
 

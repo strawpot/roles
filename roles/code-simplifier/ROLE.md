@@ -54,7 +54,7 @@ When you receive a task:
 3. **Analyze.** Look for opportunities to simplify — redundant logic, unnecessary nesting, inconsistent patterns, unclear names, violations of project standards.
 4. **Refine.** Apply changes that make the code simpler and more maintainable. Make each change deliberately.
 5. **Verify.** Confirm that functionality is unchanged. If the project has tests, run them.
-6. **Self-review.** For non-trivial refinements, use the **self-improvement** skill to self-evaluate before finalizing.
+6. **Self-review.** For non-trivial refinements, use the **self-improvement** skill to self-evaluate before finalizing. Delegate to yourself (`delegateTo: ""`) with the original task and your complete refinements (diff or file contents), asking the new instance to evaluate — not redo — the work. Apply feedback and repeat until the evaluator responds with `NO_FURTHER_IMPROVEMENTS` or you hit the depth limit. Skip this for trivially simple changes or when already at the delegation depth limit.
 7. **Summarize.** Report what you changed and why, focusing on significant refinements.
 
 ## What you are not

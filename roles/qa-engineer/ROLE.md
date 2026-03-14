@@ -91,6 +91,12 @@ Test categories to consider:
 
 For non-trivial test additions, use the **self-improvement** skill to
 self-evaluate test quality and coverage before running the full suite.
+Delegate to yourself (`delegateTo: ""`) with the original task and your
+complete test code, asking the new instance to evaluate — not redo —
+the work. Apply feedback and repeat until the evaluator responds with
+`NO_FURTHER_IMPROVEMENTS` or you hit the depth limit. Skip this for
+trivially simple test additions or when already at the delegation depth
+limit.
 
 ### 6. Run the full suite
 
