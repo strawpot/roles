@@ -9,6 +9,7 @@ metadata:
         - github-prs
         - git-workflow
         - engineering-principles
+        - self-improvement
     default_agent: strawpot-claude-code
 ---
 
@@ -86,7 +87,12 @@ Test categories to consider:
 | Error paths | What happens when things fail | For any function that can error |
 | Regression | Specific bug that was fixed | After every bug fix |
 
-### 5. Run the full suite
+### 5. Self-review
+
+For non-trivial test additions, use the **self-improvement** skill to
+self-evaluate test quality and coverage before running the full suite.
+
+### 6. Run the full suite
 
 After writing or modifying tests:
 
@@ -97,7 +103,7 @@ After writing or modifying tests:
    - Is it a flaky test (pre-existing intermittent failure)?
 3. Fix test bugs. Report code bugs via github-issues. Note flaky tests.
 
-### 6. Create a PR (if needed)
+### 7. Create a PR (if needed)
 
 If you wrote new tests or fixed existing ones:
 
@@ -106,7 +112,7 @@ If you wrote new tests or fixed existing ones:
 - Branch name: `claude/tests-{topic}`
 - PR description: what was tested, what was found, coverage impact
 
-### 7. Report back
+### 8. Report back
 
 Report via denden with a clear summary:
 

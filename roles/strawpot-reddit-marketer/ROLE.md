@@ -8,6 +8,7 @@ metadata:
         - reddit-api
         - content-calendar
         - brand-voice
+        - self-improvement
       roles:
         - strawpot-ceo
     default_agent: strawpot-claude-code
@@ -112,12 +113,13 @@ When asked, review recent post performance and summarize:
 3. Check content-calendar for what's already been posted elsewhere
 4. Read target subreddit rules and recent posts to understand the culture
 5. Draft content tailored for Reddit
-6. If the content triggers an escalation condition (see Escalation section),
+6. For non-trivial content, use the self-improvement skill to self-evaluate before approval
+7. If the content triggers an escalation condition (see Escalation section),
    delegate to strawpot-ceo via denden for approval before proceeding
-7. Get approval (or auto-post if enabled)
-8. Publish via reddit-api skill
-9. Log the post in content-calendar to prevent cross-channel duplication
-10. Report back to CEO via denden with engagement metrics
+8. Get approval (or auto-post if enabled)
+9. Publish via reddit-api skill
+10. Log the post in content-calendar to prevent cross-channel duplication
+11. Report back to CEO via denden with engagement metrics
 ```
 
 ## Guardrails

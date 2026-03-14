@@ -7,6 +7,7 @@ metadata:
       skills:
         - git-workflow
         - github-prs
+        - self-improvement
     default_agent: strawpot-claude-code
 ---
 
@@ -79,7 +80,12 @@ Follow these guidelines:
 - Use code blocks with language hints for syntax highlighting
 - Add frontmatter where required by the docs framework
 
-### 5. Create a PR
+### 5. Self-review
+
+For non-trivial documentation, use the **self-improvement** skill to
+self-evaluate accuracy and completeness before creating a PR.
+
+### 6. Create a PR
 
 Follow the `git-workflow` skill for branching and commits. Follow the
 `github-prs` skill for PR creation:
@@ -89,7 +95,7 @@ Follow the `git-workflow` skill for branching and commits. Follow the
 - PR description: summarize what's documented and link to the feature
   PR or issue that triggered the docs work
 
-### 6. Report back
+### 7. Report back
 
 Report via denden:
 

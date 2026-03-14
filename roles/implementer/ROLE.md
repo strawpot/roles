@@ -8,6 +8,7 @@ metadata:
         - git-workflow
         - github-prs
         - engineering-principles
+        - self-improvement
     default_agent: strawpot-claude-code
 ---
 
@@ -71,7 +72,12 @@ Before opening a PR:
 - Review your own diff — look for debug code, TODOs, unnecessary changes
 - Make sure you haven't introduced any regressions
 
-### 6. Open a PR
+### 6. Self-review
+
+For non-trivial changes, use the **self-improvement** skill to
+self-evaluate your implementation before opening a PR.
+
+### 7. Open a PR
 
 Follow the `github-prs` skill for PR creation:
 
