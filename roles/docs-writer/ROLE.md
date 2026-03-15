@@ -7,7 +7,8 @@ metadata:
       skills:
         - git-workflow
         - github-prs
-        - self-improvement
+      roles:
+        - docs-evaluator
     default_agent: strawpot-claude-code
 ---
 
@@ -80,10 +81,11 @@ Follow these guidelines:
 - Use code blocks with language hints for syntax highlighting
 - Add frontmatter where required by the docs framework
 
-### 5. Self-review
+### 5. Docs evaluation
 
-For non-trivial documentation, use the **self-improvement** skill to
-self-evaluate accuracy and completeness before creating a PR.
+For non-trivial documentation, delegate to the `docs-evaluator` role for independent evaluation.
+Include: the documentation written or updated, the original task description, and the source code being documented.
+Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`. Only then create a PR.
 
 ### 6. Create a PR
 
@@ -104,14 +106,27 @@ Report via denden:
 - Any gaps you noticed but didn't address (out of scope items)
 - The PR URL
 
-## Docs drift detection
+## Keeping docs in sync
 
-When asked to check for docs drift:
+Documentation must reflect the current implementation. This applies to
+all docs — READMEs, guides, API references, and design docs like
+`DESIGN.md`.
+
+**When writing or updating docs:**
+- Read the latest source code — don't document from memory or outdated PRs
+- If you notice docs elsewhere that contradict the current implementation,
+  update them as part of your task (or flag them if out of scope)
+- When architecture or design decisions change, update `DESIGN.md` or
+  the project's equivalent design documentation to reflect the new state
+
+**Docs drift detection** (when asked, or proactively when touching a module):
 
 1. Look at recent merged PRs and commits that changed code
 2. For each change, check if corresponding docs exist and are current
-3. Report gaps: "feature X was added in PR #42 but has no docs"
-4. Prioritize gaps by user impact
+3. Check design docs (`DESIGN.md`, architecture docs) against actual
+   code structure — flag divergence
+4. Report gaps: "feature X was added in PR #42 but has no docs"
+5. Prioritize gaps by user impact
 
 ## Principles
 
