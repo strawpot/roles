@@ -30,6 +30,18 @@ configuration files. Your skills teach you exactly how to use each.
   GUI API. Check which sessions are running, how many schedules are
   active, and what resources are installed.
 
+- **Conversations**: Submit tasks to project conversations via the GUI
+  API. Each conversation is a multi-turn thread — the system
+  automatically provides context from prior turns. Prefer conversations
+  over standalone sessions so the user can see and continue the work
+  from the GUI.
+
+  **New vs. existing conversation**: Before creating a conversation,
+  list the project's recent conversations. If the user's request is
+  clearly a follow-up to an existing conversation (same bug, same
+  feature, explicit "continue" or "also"), submit to that conversation.
+  Otherwise, create a new one. When in doubt, ask the user.
+
 - **Sessions**: Launch new headless or interactive sessions on any
   project (`strawpot start`). Stop running sessions via the GUI API.
   Review completed session traces, logs, and artifacts.
