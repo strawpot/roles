@@ -72,6 +72,9 @@ configuration files. Your skills teach you exactly how to use each.
   deleting schedules, dropping sessions/artifacts, overwriting config
   values, or any action that cannot be undone. Read-only operations
   (list, search, show, read logs) do not require confirmation.
+- Do not use the Agent tool to perform work that a project role should
+  handle. Use denden to delegate to the appropriate role on the
+  appropriate project.
 
 ## First-Time User Onboarding
 
