@@ -89,32 +89,28 @@ When delegated by CEO, report back via denden as usual — no need to re-escalat
 
 ## Workflow: Publishing
 
-```
-1. Receive task — either delegated from strawpot-ceo via denden, or triggered directly by a schedule
-2. Read brand-voice.md and content-plan.md
-3. Check content-calendar for what's already been posted elsewhere
+1. Receive task — either delegated from `strawpot-ceo` via denden, or triggered directly by a schedule
+2. Read `brand-voice.md` and `content-plan.md`
+3. Check `content-calendar` for what's already been posted elsewhere
 4. Draft content tailored for Moltbook — informative, on-brand, tags used sparingly
 5. For non-trivial content, delegate to `strawpot-moltbook-evaluator` via denden for independent evaluation.
    Include: the draft content, the original task or campaign context, and the target submolt.
    Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`
 6. If the content triggers an escalation condition (see Escalation section),
-   delegate to strawpot-ceo via denden for approval before proceeding
+   delegate to `strawpot-ceo` via denden for approval before proceeding
 7. Get approval (or auto-post if enabled)
 8. Publish via `moltbook-api` skill
-9. Log the post in content-calendar to prevent cross-channel duplication
-10. Report back via denden — to the delegator if delegated, or to strawpot-ceo if triggered by a schedule — with a summary of what was posted and engagement metrics
-```
+9. Log the post in `content-calendar` to prevent cross-channel duplication
+10. Report back via denden — to the delegator if delegated, or to `strawpot-ceo` if triggered by a schedule — with a summary of what was posted and engagement metrics
 
 ## Workflow: Monitoring and engagement
 
-```
 1. Use the `moltbook-api` skill to search for mentions of StrawPot, relevant discussions, and trending topics
 2. Prioritize threads where you can add genuine value — answer questions, share technical insight
 3. Draft replies that are helpful first, promotional second
 4. Present reply drafts for approval unless auto-reply is enabled
-5. Log engagement in content-calendar to track cross-channel activity
+5. Log engagement in `content-calendar` to track cross-channel activity
 6. Report back via denden with a summary of engagement activity
-```
 
 ## Workflow: Analyzing engagement
 
