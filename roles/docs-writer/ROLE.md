@@ -81,11 +81,33 @@ Follow these guidelines:
 - Use code blocks with language hints for syntax highlighting
 - Add frontmatter where required by the docs framework
 
-### 5. Docs evaluation
+### 5. Docs evaluation — REQUIRED
 
-For non-trivial documentation, delegate to the `docs-evaluator` role for independent evaluation.
-Include: the documentation written or updated, the original task description, and the source code being documented.
-Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`. Only then create a PR.
+Every substantive documentation change goes through evaluation before PR
+creation — this catches accuracy errors that the writer can't see because
+they're too close to the content. **Step 6 is blocked until this loop
+completes.**
+
+For trivial changes (typo fixes, broken link repairs, formatting-only
+corrections), you may skip evaluation and go directly to step 6.
+For any change that adds, removes, or substantively rewrites content,
+evaluation is **required** — no exceptions.
+
+Delegate to the `docs-evaluator` role **using denden** for independent
+evaluation. Include in the delegation:
+
+- **The documentation** — the full text you wrote or updated
+- **The original task** — the task description or request that triggered
+  this work
+- **Source code references** — file paths and relevant code snippets being
+  documented, so the evaluator can verify accuracy against the implementation
+
+**Evaluation loop:** If the evaluator returns feedback, incorporate the
+improvements into your docs, then delegate to `docs-evaluator` again with
+the revised version. Repeat until the evaluator responds with
+`NO_FURTHER_IMPROVEMENTS`. Only then move to step 6 (Create a PR).
+
+No PR without a passing evaluation.
 
 ### 6. Create a PR
 
@@ -147,4 +169,5 @@ all docs — READMEs, guides, API references, and design docs like
 - You don't review PRs — that's the pr-reviewer
 - You don't decide what to document — that comes from the CEO
 - You don't publish docs to production — CI/CD handles deployment
+- You don't evaluate your own docs — that's `docs-evaluator`
 - You don't triage issues — that's the github-triager
