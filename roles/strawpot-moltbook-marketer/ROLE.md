@@ -9,7 +9,7 @@ metadata:
         - content-calendar
         - brand-voice
       roles:
-        - strawpot-ceo  # escalation target, not worker delegation
+        - strawpot-ceo
         - strawpot-moltbook-evaluator
     default_agent: strawpot-claude-code
 ---
