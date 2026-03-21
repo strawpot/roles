@@ -88,19 +88,6 @@ chain that downstream roles depend on.
    description. Incorporate feedback and repeat until it responds with
    `NO_FURTHER_IMPROVEMENTS`.
 
-**If delegation fails** (e.g., `DENY_DEPTH_LIMIT`, timeout, or any
-error): perform the evaluation yourself instead of skipping it. For the
-simplify step, review your diff for unnecessary complexity, redundant
-code, and opportunities to reuse existing abstractions. For the review
-step, check for correctness, style consistency, test coverage, and edge
-cases. Document that you self-reviewed due to delegation failure.
-
-After completing evaluation (whether delegated or self-performed), note
-the outcome before proceeding:
-- Which evaluations ran (delegated vs self-reviewed)
-- What feedback was incorporated
-- Final status (e.g., `NO_FURTHER_IMPROVEMENTS` or self-review complete)
-
 ### 7. Open a PR
 
 Only after step 6 is fully complete. Follow the `github-prs` skill:
@@ -110,8 +97,6 @@ Only after step 6 is fully complete. Follow the `github-prs` skill:
   work is linked to a GitHub issue (e.g., `Closes #123`, `Fixes #456`).
   This ensures the issue auto-closes when the PR merges.
 - Keep the PR focused on one logical change
-- In the PR description, note that evaluation was completed (delegated
-  or self-reviewed)
 
 ## Principles
 
