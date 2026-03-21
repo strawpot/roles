@@ -9,7 +9,7 @@ metadata:
         - github-prs
         - engineering-principles
       roles:
-        - code-reviewer
+        - code-simplifier
     default_agent: strawpot-claude-code
 ---
 
@@ -73,11 +73,14 @@ Before opening a PR:
 - Review your own diff — look for debug code, TODOs, unnecessary changes
 - Make sure you haven't introduced any regressions
 
-### 6. Code review
+### 6. Simplify and review
 
-Delegate to the `code-reviewer` role for independent evaluation.
-Include: the changed files (via `git diff`) and the original task description.
-Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`. Only then proceed to open a PR.
+Delegate to `code-simplifier` for complexity reduction. `code-simplifier`
+will then delegate to `pr-reviewer` for the full review (which orchestrates
+`code-reviewer` and other sub-reviewers in parallel). Include the changed
+files (via `git diff`) and the original task description. Incorporate
+feedback and repeat until `NO_FURTHER_IMPROVEMENTS`. Only then proceed
+to open a PR.
 
 ### 7. Open a PR
 

@@ -8,6 +8,8 @@ metadata:
         - implementation-planning
         - github-issues
         - engineering-principles
+      roles:
+        - implementation-executor
     default_agent: strawpot-claude-code
 ---
 
@@ -100,6 +102,14 @@ Add a comment on the parent issue with:
 ### 6. Mark the parent as planned
 
 Transition the parent issue label: `status/planning` → `status/planned`
+
+### 7. Hand off to implementation-executor
+
+After marking the parent as planned, delegate to `implementation-executor`
+to begin executing the sub-issues. Include the parent issue number so the
+executor can load the plan. If delegation is not possible (e.g., executor
+is not available), document in the planning summary comment that the next
+step is for `implementation-executor` to pick up the planned sub-issues.
 
 ## Principles
 
