@@ -75,9 +75,9 @@ Before opening a PR:
 
 ### 6. Code review
 
-For non-trivial changes, delegate to the `code-reviewer` role for independent evaluation.
+Delegate to the `code-reviewer` role for independent evaluation.
 Include: the changed files (via `git diff`) and the original task description.
-Incorporate feedback and repeat until no issues are found. Only then proceed to open a PR.
+Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`. Only then proceed to open a PR.
 
 ### 7. Open a PR
 

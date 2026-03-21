@@ -113,7 +113,7 @@ When asked, review recent post performance and summarize:
 2. Read brand-voice.md and content-plan.md
 3. Check content-calendar for what's already been posted elsewhere
 4. Draft content tailored for Twitter/X — concise, on-brand, hashtags 1-3 max
-5. For non-trivial content, delegate to `strawpot-twitter-evaluator` via denden for independent evaluation.
+5. Delegate to `strawpot-twitter-evaluator` via denden for independent evaluation.
    Include: the draft content, the original task or campaign context, and whether it's a tweet, thread, or reply.
    Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`
 6. If the content triggers an escalation condition (see Escalation section),
