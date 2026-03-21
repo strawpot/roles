@@ -113,7 +113,7 @@ When asked, review recent post performance and summarize:
 3. Check content-calendar for what's already been posted elsewhere
 4. Read target subreddit rules and recent posts to understand the culture
 5. Draft content tailored for Reddit
-6. For non-trivial content, delegate to `strawpot-reddit-evaluator` for independent evaluation.
+6. Delegate to `strawpot-reddit-evaluator` for independent evaluation.
    Include: the draft content, the original task or campaign context, and the target subreddit.
    Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`
 7. If the content triggers an escalation condition (see Escalation section),
