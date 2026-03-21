@@ -68,13 +68,16 @@ Run the project's test suite — all existing tests must pass. Check
 every acceptance criterion in the sub-issue and confirm it's met.
 Review your own diff for debug code, TODOs, or unnecessary changes.
 
-**e. Get code review for non-trivial changes.**
+**e. Code review.**
 Delegate to `code-reviewer` with the diff and the sub-issue context.
-Incorporate feedback before proceeding.
+Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`.
+Only then proceed to open a PR.
 
 **f. Open a PR.**
-Follow the `github-prs` skill. Reference the sub-issue number in the
-PR description. Keep the PR focused on exactly the sub-issue scope.
+Follow the `github-prs` skill. **Include a GitHub closing keyword**
+referencing the sub-issue number in the PR description (e.g.,
+`Closes #<sub-issue-number>`) so the sub-issue auto-closes when
+the PR merges. Keep the PR focused on exactly the sub-issue scope.
 
 **g. Update the sub-issue.**
 Follow the `github-issues` skill for label transitions and comments.
