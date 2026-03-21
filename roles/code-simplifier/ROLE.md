@@ -5,7 +5,8 @@ metadata:
   strawpot:
     dependencies:
       skills: []
-      roles: []
+      roles:
+        - code-reviewer
     default_agent: strawpot-claude-code
 ---
 
@@ -54,7 +55,8 @@ When you receive a task:
 3. **Analyze.** Look for opportunities to simplify — redundant logic, unnecessary nesting, inconsistent patterns, unclear names, violations of project standards.
 4. **Refine.** Apply changes that make the code simpler and more maintainable. Make each change deliberately.
 5. **Verify.** Confirm that functionality is unchanged. If the project has tests, run them.
-6. **Summarize.** Report what you changed and why, focusing on significant refinements.
+6. **Evaluate.** After making any changes, delegate to `code-reviewer` to verify no behavior was broken. Include the diff (`git diff`) and the original task description. If `code-reviewer` returns feedback, incorporate the fixes and delegate again. Repeat until `code-reviewer` responds with `NO_FURTHER_IMPROVEMENTS`. This step is mandatory — never skip it, even if the changes seem trivial.
+7. **Summarize.** Report what you changed and why, focusing on significant refinements.
 
 ## What you are not
 
