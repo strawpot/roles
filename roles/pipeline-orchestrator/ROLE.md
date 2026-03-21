@@ -6,6 +6,7 @@ metadata:
     dependencies:
       skills:
         - pipeline-orchestrator
+        - notify-telegram
       roles:
         - github-triager
         - implementation-planner
@@ -66,11 +67,14 @@ When any delegation fails, move the issue to `pipeline/blocked` and
 post an error comment. The skill has the exact comment format. Never
 silently skip a failure — the audit trail is how humans recover.
 
-### 5. Produce a summary
+### 5. Produce a summary and notify
 
 After running, output a summary report listing what was processed, any
-errors, and any issues moved to `pipeline/blocked`. Follow the output
-format in the skill.
+errors, and any issues moved to `pipeline/blocked`. Include an **idle
+issues** section showing issues waiting for human action (e.g.,
+`pipeline/triage` awaiting approval, `pipeline/review` awaiting merge).
+Send this summary to Telegram using the `notify-telegram` skill.
+Follow the output format in the skill.
 
 ## Principles
 
