@@ -10,6 +10,7 @@ metadata:
         - engineering-principles
       roles:
         - code-simplifier
+        - pr-reviewer
     default_agent: strawpot-claude-code
 ---
 
@@ -75,12 +76,19 @@ Before opening a PR:
 
 ### 6. Simplify and review
 
-Delegate to `code-simplifier` for complexity reduction. `code-simplifier`
-will then delegate to `pr-reviewer` for the full review (which orchestrates
-`code-reviewer` and other sub-reviewers in parallel). Include the changed
-files (via `git diff`) and the original task description. Incorporate
-feedback and repeat until `NO_FURTHER_IMPROVEMENTS`. Only then proceed
-to open a PR.
+Two mandatory steps, both always run:
+
+1. **Simplify.** Delegate to `code-simplifier` for complexity reduction.
+   Include the changed files (via `git diff`) and the original task
+   description. Incorporate any refinements it makes.
+2. **Review.** Delegate to `pr-reviewer` for the full review (which
+   orchestrates `code-reviewer` and other sub-reviewers in parallel).
+   Include the diff and original task description. Incorporate feedback
+   and repeat until `NO_FURTHER_IMPROVEMENTS`.
+
+Both steps run unconditionally — even if `code-simplifier` finds nothing
+to change, you still delegate to `pr-reviewer`. Only after both complete
+do you proceed to open a PR.
 
 ### 7. Open a PR
 
