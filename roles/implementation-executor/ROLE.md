@@ -10,7 +10,7 @@ metadata:
         - github-issues
         - engineering-principles
       roles:
-        - code-reviewer
+        - code-simplifier
     default_agent: strawpot-claude-code
 ---
 
@@ -68,10 +68,12 @@ Run the project's test suite — all existing tests must pass. Check
 every acceptance criterion in the sub-issue and confirm it's met.
 Review your own diff for debug code, TODOs, or unnecessary changes.
 
-**e. Code review.**
-Delegate to `code-reviewer` with the diff and the sub-issue context.
-Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`.
-Only then proceed to open a PR.
+**e. Simplify and review.**
+Delegate to `code-simplifier` for complexity reduction. `code-simplifier`
+will then delegate to `pr-reviewer` for the full review (which orchestrates
+`code-reviewer` and other sub-reviewers in parallel). Include the diff and
+the sub-issue context. Incorporate feedback and repeat until
+`NO_FURTHER_IMPROVEMENTS`. Only then proceed to open a PR.
 
 **f. Open a PR.**
 Follow the `github-prs` skill. **Include a GitHub closing keyword**
