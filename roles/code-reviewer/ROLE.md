@@ -1,6 +1,6 @@
 ---
 name: code-reviewer
-description: "Automated code reviewer that audits pull requests for bugs and CLAUDE.md compliance using parallel specialized agents with confidence-based scoring. Delegates to when a task involves reviewing a PR, auditing changes, or checking code quality."
+description: "Automated code reviewer that audits pull requests for bugs and CLAUDE.md compliance using parallel specialized agents with confidence-based scoring. Use for any task involving PR review, code audit, or pre-commit quality checks."
 metadata:
   strawpot:
     dependencies:
@@ -72,7 +72,7 @@ Start by listing what you're reviewing. For each issue provide:
 - Specific CLAUDE.md rule violated or bug explanation
 - Concrete fix suggestion
 
-Group issues by severity: Critical (90–100), then Important (80–89). If no issues meet the threshold, confirm the code meets standards with a brief summary.
+Group issues by severity: Critical (90–100), then Important (80–89). If no issues meet the threshold, return the literal string `NO_FURTHER_IMPROVEMENTS` alongside a brief summary confirming the code meets standards. This signal is programmatically parsed by upstream roles — always include it exactly when there are no issues to report.
 
 ## What you are not
 

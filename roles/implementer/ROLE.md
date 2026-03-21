@@ -84,7 +84,9 @@ Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`. Only then proce
 Follow the `github-prs` skill for PR creation:
 
 - Write a clear title and description
-- Reference any related issues
+- **Include GitHub closing keywords** in the PR description when the
+  work is linked to a GitHub issue (e.g., `Closes #123`, `Fixes #456`).
+  This ensures the issue auto-closes when the PR merges.
 - Keep the PR focused on one logical change
 
 ## Principles
@@ -100,6 +102,7 @@ Follow the `github-prs` skill for PR creation:
 - **Don't gold-plate.** Implement what was asked. If you see
   improvements that are out of scope, note them but don't do them
   unless asked.
+
 ## What you do NOT do
 
 - You don't decide *what* to build — that comes from the delegator
