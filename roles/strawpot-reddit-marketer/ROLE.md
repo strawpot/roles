@@ -1,6 +1,8 @@
 ---
 name: strawpot-reddit-marketer
 description: "Reddit marketer that posts in relevant subreddits, engages authentically with communities, and promotes StrawPot on Reddit aligned with brand voice."
+archived: true
+archivedReason: "Reddit marketing channel formally archived 2026-03-23. Never reached production — env vars (REDDIT_CLIENT_ID, etc.) were never configured and the channel was paused during content review."
 metadata:
   strawpot:
     dependencies:
