@@ -81,17 +81,13 @@ Follow these guidelines:
 - Use code blocks with language hints for syntax highlighting
 - Add frontmatter where required by the docs framework
 
-### 5. Docs evaluation — REQUIRED
+### 5. Docs evaluation
 
-Every substantive documentation change goes through evaluation before PR
-creation — this catches accuracy errors that the writer can't see because
-they're too close to the content. **Step 6 is blocked until this loop
-completes.**
-
-For trivial changes (typo fixes, broken link repairs, formatting-only
-corrections), you may skip evaluation and go directly to step 6.
-For any change that adds, removes, or substantively rewrites content,
-evaluation is **required** — no exceptions.
+MUST delegate to `docs-evaluator` for every documentation change — no
+exceptions. This step ALWAYS runs, unconditionally, regardless of change
+size. Typo fixes, broken link repairs, formatting corrections, full
+rewrites — all output goes through evaluation. Step 6 is blocked until
+this loop completes.
 
 Delegate to the `docs-evaluator` role **using denden** for independent
 evaluation. Include in the delegation:
@@ -105,9 +101,11 @@ evaluation. Include in the delegation:
 **Evaluation loop:** If the evaluator returns feedback, incorporate the
 improvements into your docs, then delegate to `docs-evaluator` again with
 the revised version. Repeat until the evaluator responds with
-`NO_FURTHER_IMPROVEMENTS`. Only then move to step 6 (Create a PR).
+`NO_FURTHER_IMPROVEMENTS`.
 
-No PR without a passing evaluation.
+**Completion gating:** Do NOT proceed to step 6, do NOT create a PR, and
+do NOT present work as final until `docs-evaluator` returns
+`NO_FURTHER_IMPROVEMENTS`. No PR without a passing evaluation.
 
 ### 6. Create a PR
 
