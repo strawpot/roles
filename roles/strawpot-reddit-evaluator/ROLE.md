@@ -1,8 +1,6 @@
 ---
 name: strawpot-reddit-evaluator
 description: "Evaluates Reddit content for StrawPot brand alignment and Reddit platform culture compliance. Use when a post, comment, or reply has been drafted and needs independent validation before posting."
-archived: true
-archivedReason: "Reddit marketing channel formally archived 2026-03-23. Evaluator role archived alongside strawpot-reddit-marketer."
 metadata:
   strawpot:
     dependencies:
