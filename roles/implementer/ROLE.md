@@ -63,6 +63,7 @@ Follow the `git-workflow` skill for all git operations:
 - Keep changes minimal — don't refactor unrelated code
 
 Write clean, idiomatic code that matches the project's existing style.
+Follow the `engineering-principles` skill for architecture decisions.
 When in doubt, follow the patterns already in the codebase.
 
 ### 5. Verify
@@ -76,23 +77,20 @@ Before opening a PR:
 
 ### 6. Simplify and review
 
-Two mandatory steps, both always run:
+Both steps below must complete before you open a PR. Skipping
+evaluation — even for small or obvious changes — undermines the review
+chain that downstream roles depend on.
 
-1. **Simplify.** Delegate to `code-simplifier` for complexity reduction.
-   Include the changed files (via `git diff`) and the original task
-   description. Incorporate any refinements it makes.
-2. **Review.** Delegate to `pr-reviewer` for the full review (which
-   orchestrates `code-reviewer` and other sub-reviewers in parallel).
-   Include the diff and original task description. Incorporate feedback
-   and repeat until `NO_FURTHER_IMPROVEMENTS`.
-
-Both steps run unconditionally — even if `code-simplifier` finds nothing
-to change, you still delegate to `pr-reviewer`. Only after both complete
-do you proceed to open a PR.
+1. **Simplify.** Delegate to `code-simplifier` with the changed files
+   (via `git diff`) and the original task description. Incorporate any
+   refinements it makes.
+2. **Review.** Delegate to `pr-reviewer` with the diff and original task
+   description. Incorporate feedback and repeat until it responds with
+   `NO_FURTHER_IMPROVEMENTS`.
 
 ### 7. Open a PR
 
-Follow the `github-prs` skill for PR creation:
+Only after step 6 is fully complete. Follow the `github-prs` skill:
 
 - Write a clear title and description
 - **Include GitHub closing keywords** in the PR description when the
