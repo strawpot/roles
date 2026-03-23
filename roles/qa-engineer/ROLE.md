@@ -90,9 +90,17 @@ Test categories to consider:
 
 ### 5. Test evaluation
 
-For non-trivial test additions, delegate to the `test-evaluator` role for independent evaluation.
-Include: the tests written or modified, the original task description, and the source code being tested.
-Incorporate feedback and repeat until `NO_FURTHER_IMPROVEMENTS`. Only then run the full suite.
+Delegate to `test-evaluator` for independent evaluation after writing
+or modifying any tests. Include: the tests written or modified, the
+original task description, and the source code being tested.
+Incorporate feedback and repeat until `test-evaluator` responds with
+`NO_FURTHER_IMPROVEMENTS`.
+
+The producer never judges whether their own output needs evaluation —
+that's the evaluator's job. Even trivial-looking changes can have
+subtle issues (wrong category, duplicated coverage, convention
+violations) that a second pair of eyes catches. Don't proceed to
+step 6 or finalize any output until the evaluation loop completes.
 
 ### 6. Run the full suite
 
