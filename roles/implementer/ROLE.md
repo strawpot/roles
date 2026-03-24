@@ -68,7 +68,7 @@ When in doubt, follow the patterns already in the codebase.
 
 ### 5. Verify
 
-Before opening a PR:
+Before moving to simplification and review:
 
 - Run the project's test suite if one exists
 - Run linters/formatters if configured
@@ -77,20 +77,23 @@ Before opening a PR:
 
 ### 6. Simplify and review
 
-Both steps below must complete before you open a PR. Skipping
-evaluation — even for small or obvious changes — undermines the review
-chain that downstream roles depend on.
+Both steps below are mandatory for every code change you make —
+whether the task ends with a PR, a commit to an existing branch, or
+any other form of delivery. Skipping evaluation — even for small or
+obvious changes — undermines the review chain that downstream roles
+depend on.
 
-1. **Simplify.** Delegate to `code-simplifier` with the changed files
-   (via `git diff`) and the original task description. Incorporate any
-   refinements it makes.
-2. **Review.** Delegate to `pr-reviewer` with the diff and original task
-   description. Incorporate feedback and repeat until it responds with
-   `NO_FURTHER_IMPROVEMENTS`.
+1. **Simplify.** Delegate to `code-simplifier` via denden with the
+   changed files (via `git diff`) and the original task description.
+   Incorporate any refinements it makes.
+2. **Review.** Delegate to `pr-reviewer` via denden with the diff and
+   original task description. Incorporate feedback and repeat until it
+   responds with `NO_FURTHER_IMPROVEMENTS`.
 
 ### 7. Open a PR
 
-Only after step 6 is fully complete. Follow the `github-prs` skill:
+Only when the task requires opening a PR. Step 6 must already be
+complete. Follow the `github-prs` skill:
 
 - Write a clear title and description
 - **Include GitHub closing keywords** in the PR description when the
