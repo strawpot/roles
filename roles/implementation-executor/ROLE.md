@@ -9,6 +9,7 @@ metadata:
         - github-prs
         - github-issues
         - engineering-principles
+        - worktree
       roles:
         - code-simplifier
         - pr-reviewer
@@ -89,6 +90,17 @@ Rules:
 - **Mid-review changes**: if a PR in the middle of the stack needs
   changes, cascade those changes to downstream branches via rebase
   before opening their PRs.
+
+**Isolation for sub-issues.** For multi-file changes or risky work,
+use the `worktree` skill to isolate each sub-issue:
+
+- `worktree create --name <parent>-<N>-<desc>` for each sub-issue
+- For stacked branches: `worktree create --name <parent>-<N>-<desc> --base <previous-branch>`
+- When done: `worktree merge --name <name>` (cleans up worktree; branch persists while PR is open)
+- If abandoned: `worktree discard --name <name>`
+
+For independent sub-issues or trivial changes, isolation is optional —
+work directly on the branch.
 
 **d. Verify.**
 Run the project's test suite — all existing tests must pass. Check
