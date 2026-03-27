@@ -133,11 +133,11 @@ After step 7 (simplify and review) is complete:
 3. **Fix and re-evaluate.** If either reviewer reports issues with
    confidence ≥80:
    - Fix every issue at that threshold
-   - Re-run step 5 (Verify) to confirm nothing regressed
+   - Re-run step 6 (Verify) to confirm nothing regressed
    - Re-delegate to the reviewer(s) that flagged issues
    - Repeat until `code-reviewer` returns `NO_FURTHER_IMPROVEMENTS`
      **and** `qa-engineer` confirms no blocking issues
-4. **Gate.** Only after both evaluators pass may you proceed to step 8
+4. **Gate.** Only after both evaluators pass may you proceed to step 9
    (Open a PR) or report the task as complete.
 
 You may run `code-reviewer` and `qa-engineer` delegations in parallel
