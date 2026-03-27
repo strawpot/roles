@@ -59,10 +59,36 @@ Read the files mentioned in the implementation hints. Look at the
 patterns referenced in the sub-issue. Don't assume — read.
 
 **c. Implement.**
-Follow the `git-workflow` skill for branching and commits. Follow the
-`engineering-principles` skill for architecture decisions. Keep changes
-scoped to what the sub-issue asks for — if you spot improvements
-outside the sub-issue's scope, note them but don't implement them.
+Follow the `git-workflow` skill for commit conventions and push
+workflow. For *branching strategy*, see the stacked branches rule
+below. Follow the `engineering-principles` skill for architecture
+decisions. Keep changes scoped to what the sub-issue asks for — if you
+spot improvements outside the sub-issue's scope, note them but don't
+implement them.
+
+**Stacked branches for ordered sub-issues.** When sub-issues have a
+declared execution order (`Order: N of M`), create each branch from the
+*previous* sub-issue's branch — not from main. Sub-issue 1 branches
+from main, sub-issue 2 from sub-issue 1's branch, and so on. If a
+sub-issue has no `Order` field, treat it as independent and branch from
+main. Name stacked branches with the parent issue number and sequence:
+`<type>/<parent-issue>-<N>-<description>` (e.g.,
+`feature/534-3-add-cancellation-handler`).
+
+Why: ordered sub-issues touch overlapping areas. Branching each from
+main causes merge conflicts because later PRs lack earlier changes.
+Stacking ensures each branch includes all prior work.
+
+Rules:
+
+- **PR targeting**: each stacked PR targets the *previous branch* (not
+  main). This keeps the diff scoped to just that sub-issue's changes.
+  After the previous PR merges to main, retarget the next PR to main.
+- **After a PR merges**: rebase remaining stacked branches onto the
+  updated main. This is typically a trivial no-conflict rebase.
+- **Mid-review changes**: if a PR in the middle of the stack needs
+  changes, cascade those changes to downstream branches via rebase
+  before opening their PRs.
 
 **d. Verify.**
 Run the project's test suite — all existing tests must pass. Check
