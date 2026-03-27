@@ -11,6 +11,8 @@ metadata:
       roles:
         - code-simplifier
         - pr-reviewer
+        - code-reviewer
+        - qa-engineer
     default_agent: strawpot-claude-code
 ---
 
@@ -90,10 +92,42 @@ depend on.
    original task description. Incorporate feedback and repeat until it
    responds with `NO_FURTHER_IMPROVEMENTS`.
 
-### 7. Open a PR
+### 7. Evaluate
 
-Only when the task requires opening a PR. Step 6 must already be
-complete. Follow the `github-prs` skill:
+Past tasks (Issue #75, Issue #44) shipped without evaluation and
+introduced avoidable defects. Completing this step before reporting
+work as done is what prevents that pattern from recurring. Every task
+goes through this gate — no exceptions.
+
+Because steps 5–6 may have changed the code (simplification,
+review-driven fixes), this is a final-state review on the complete
+diff — not a repeat of pr-reviewer's earlier code-reviewer pass.
+
+After step 6 (simplify and review) is complete:
+
+1. **Code review.** Delegate to `code-reviewer` via denden with the
+   full diff (`git diff origin/main...HEAD`) and the original task
+   description. Wait for the structured review response.
+2. **QA verification.** Delegate to `qa-engineer` via denden with the
+   branch name, task description, and acceptance criteria. Wait for
+   the quality report.
+3. **Fix and re-evaluate.** If either reviewer reports issues with
+   confidence ≥80:
+   - Fix every issue at that threshold
+   - Re-run step 5 (Verify) to confirm nothing regressed
+   - Re-delegate to the reviewer(s) that flagged issues
+   - Repeat until `code-reviewer` returns `NO_FURTHER_IMPROVEMENTS`
+     **and** `qa-engineer` confirms no blocking issues
+4. **Gate.** Only after both evaluators pass may you proceed to step 8
+   (Open a PR) or report the task as complete.
+
+You may run `code-reviewer` and `qa-engineer` delegations in parallel
+to save time, but both must pass before proceeding.
+
+### 8. Open a PR
+
+Only when the task requires opening a PR. Steps 6 and 7 must already
+be complete. Follow the `github-prs` skill:
 
 - Write a clear title and description
 - **Include GitHub closing keywords** in the PR description when the
