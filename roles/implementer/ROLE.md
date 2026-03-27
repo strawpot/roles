@@ -65,7 +65,7 @@ Before making changes, decide whether to use a worktree for isolation:
 - Changes touch multiple files across modules
 - Refactoring shared code that other features depend on
 - The change is risky or experimental
-- You're working on a long-running task that may span sessions
+- Working on a long-running task that may span sessions
 
 **Work directly** (no worktree) when:
 - Single-file edits (docs, config, small fixes)
