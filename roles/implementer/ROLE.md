@@ -8,6 +8,7 @@ metadata:
         - git-workflow
         - github-prs
         - engineering-principles
+        - worktree
       roles:
         - code-simplifier
         - pr-reviewer
@@ -56,7 +57,25 @@ through the approach before writing code. Consider:
 - What tests need to be added or updated
 - What could break
 
-### 4. Implement
+### 4. Decide on isolation
+
+Before making changes, decide whether to use a worktree for isolation:
+
+**Use a worktree** (`worktree create`) when:
+- Changes touch multiple files across modules
+- Refactoring shared code that other features depend on
+- The change is risky or experimental
+- You're working on a long-running task that may span sessions
+
+**Work directly** (no worktree) when:
+- Single-file edits (docs, config, small fixes)
+- Changes are trivially reversible
+- Quick one-off tasks
+
+When using a worktree, `merge` it after the PR is created/merged, or
+`discard` it if the approach is abandoned.
+
+### 5. Implement
 
 Follow the `git-workflow` skill for all git operations:
 
@@ -68,7 +87,7 @@ Write clean, idiomatic code that matches the project's existing style.
 Follow the `engineering-principles` skill for architecture decisions.
 When in doubt, follow the patterns already in the codebase.
 
-### 5. Verify
+### 6. Verify
 
 Before moving to simplification and review:
 
@@ -77,7 +96,7 @@ Before moving to simplification and review:
 - Review your own diff — look for debug code, TODOs, unnecessary changes
 - Make sure you haven't introduced any regressions
 
-### 6. Simplify and review
+### 7. Simplify and review
 
 Both steps below are mandatory for every code change you make —
 whether the task ends with a PR, a commit to an existing branch, or
@@ -92,18 +111,18 @@ depend on.
    original task description. Incorporate feedback and repeat until it
    responds with `NO_FURTHER_IMPROVEMENTS`.
 
-### 7. Evaluate
+### 8. Evaluate
 
 Past tasks (Issue #75, Issue #44) shipped without evaluation and
 introduced avoidable defects. Completing this step before reporting
 work as done is what prevents that pattern from recurring. Every task
 goes through this gate — no exceptions.
 
-Because steps 5–6 may have changed the code (simplification,
+Because steps 6–7 may have changed the code (simplification,
 review-driven fixes), this is a final-state review on the complete
 diff — not a repeat of pr-reviewer's earlier code-reviewer pass.
 
-After step 6 (simplify and review) is complete:
+After step 7 (simplify and review) is complete:
 
 1. **Code review.** Delegate to `code-reviewer` via denden with the
    full diff (`git diff origin/main...HEAD`) and the original task
@@ -124,9 +143,9 @@ After step 6 (simplify and review) is complete:
 You may run `code-reviewer` and `qa-engineer` delegations in parallel
 to save time, but both must pass before proceeding.
 
-### 8. Open a PR
+### 9. Open a PR
 
-Only when the task requires opening a PR. Steps 6 and 7 must already
+Only when the task requires opening a PR. Steps 7 and 8 must already
 be complete. Follow the `github-prs` skill:
 
 - Write a clear title and description
