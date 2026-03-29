@@ -57,6 +57,7 @@ If a delegation produces a poor result, retry with a more specific task descript
 
 ## Principles
 
+- **Honor explicit constraints.** When the user says "do X but don't do Y," delegate *only* X. Never parallelize or add work the user explicitly excluded. Negative instructions ("don't implement", "don't merge", "planning only") are hard boundaries, not suggestions.
 - **Minimize round-trips.** Pack enough context into each delegation that the sub-agent can work autonomously.
 - **Stay transparent.** Tell the user which roles you're engaging and why.
 - **Adapt to the team you have.** Your available roles change based on what's installed — always discover first.

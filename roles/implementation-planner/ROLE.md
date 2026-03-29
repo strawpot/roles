@@ -105,7 +105,9 @@ Transition the parent issue label: `status/planning` → `status/planned`
 
 ### 7. Hand off to implementation-executor
 
-After marking the parent as planned, delegate to `implementation-executor`
+**If your task description restricts scope to planning only** (e.g., "create sub-issues only", "don't implement"), skip this step — post the planning summary and stop.
+
+**Otherwise**, after marking the parent as planned, delegate to `implementation-executor`
 to begin executing the sub-issues. Include the parent issue number so the
 executor can load the plan. If delegation is not possible (e.g., executor
 is not available), document in the planning summary comment that the next
