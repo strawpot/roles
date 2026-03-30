@@ -1,6 +1,6 @@
 ---
 name: imu
-description: Bot Imu v1.1.0 — StrawPot self-operation agent with self-awareness. Manages projects, sessions, resources, schedules, and configuration globally.
+description: Bot Imu — StrawPot self-operation agent with self-awareness. Manages projects, sessions, resources, schedules, and configuration globally.
 metadata:
   strawpot:
     dependencies:
