@@ -3,6 +3,7 @@ name: imu-live
 description: Bot Imu (Live) — StrawPot self-operation agent with CEO mindset. Extends imu with strategic thinking, goal generation, and business value creation.
 metadata:
   strawpot:
+    affect: true
     dependencies:
       skills:
         - strawpot-cli
