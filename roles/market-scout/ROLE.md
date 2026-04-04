@@ -58,12 +58,54 @@ Search these communities with these keyword patterns:
 
 ### Search Execution
 
-Use WebSearch to find recent posts (last 7 days preferred, last 30
-days acceptable). For each search:
-1. Run 3-5 different keyword combinations
-2. Read the top results
+Recency is non-negotiable. Only recent signals matter — stale pain
+points lead to stale ideas.
+
+**Date filtering (mandatory):**
+- Append a date filter to EVERY WebSearch query. Use `"after:YYYY-MM-DD"`
+  (30 days ago) or add `"past week"` / `"past month"` to the search terms.
+- Calculate the cutoff date dynamically from today's date.
+- Example: `"CI/CD" debugging nightmare after:2026-03-04`
+
+**Recency enforcement:**
+- Results from the **last 7 days** are primary — prioritize these.
+- Results from **8–30 days ago** are acceptable as supporting evidence.
+- **Exclude results older than 30 days** unless they show sustained,
+  ongoing discussion with recent activity. A single old post with no
+  recent comments is stale — exclude it. An old thread with fresh
+  replies this week is still a live signal.
+- Note the **publication date** of each source when recording a pain point.
+  If the date cannot be determined, mark it as `"source_date": "unknown"`
+  and flag the entry as lower confidence.
+
+**For each search:**
+1. Run 3-5 different keyword combinations, each with a date filter
+2. Read the top results — verify publication dates before extracting
 3. Extract pain points from comments and discussions
 4. Look for patterns — the same complaint from multiple people is gold
+
+### Trend Detection
+
+After collecting pain points, compare against previously stored data
+to detect trend direction. This turns one-off scans into a time-series
+signal.
+
+**Process:**
+1. Recall previous pain points from memory (`keywords: ["market-scout", "pain-point"]`).
+   If no prior data exists (first scan), mark all pain points as NEW and
+   skip the comparison step.
+2. For each new pain point, check if a similar pain point was seen before
+3. Assign a trend status:
+   - **NEW** — First time this pain point appears. No prior match in memory.
+   - **GROWING** — Seen before, but now appearing in more sources, with
+     stronger language, or higher frequency than last scan.
+   - **STABLE** — Seen before at roughly the same intensity. No change.
+   - **DECLINING** — Seen before but fewer mentions, weaker language, or
+     users reporting the problem is now solved.
+4. Prioritize **NEW** and **GROWING** pain points in the report — these
+   represent emerging opportunities. STABLE pain points are still worth
+   tracking. DECLINING pain points can be noted briefly but should not
+   drive new ideas.
 
 ## Pain Point Schema
 
@@ -83,6 +125,8 @@ For each pain point discovered, create a structured entry:
   "idea_detail": "2-3 sentences on how it would work",
   "competitors": ["Existing solutions people mentioned"],
   "score": 0,
+  "source_date": "ISO date of the original post/comment (or 'unknown')",
+  "trend_status": "NEW|GROWING|STABLE|DECLINING",
   "discovered_at": "ISO date",
   "status": "new"
 }
@@ -123,6 +167,13 @@ After each scan, produce a report:
 - Date, sources searched, keywords used
 - Total pain points found
 - Top 3 by score
+
+### Freshness Summary
+- Results from last 7 days: N
+- Results from 8–30 days: N
+- Results discarded (older than 30 days): N
+- Pain point trend breakdown: N NEW / N GROWING / N STABLE / N DECLINING
+- Percentage of NEW pain points vs previously known
 
 ### Pain Points (sorted by score, descending)
 Each with full schema above.
