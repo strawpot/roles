@@ -3,10 +3,6 @@ name: market-scout
 description: Pain Point Scout — scans social media (Reddit, HN, Twitter, IndieHackers) for developer pain points and converts them into actionable product ideas.
 metadata:
   strawpot:
-    dependencies:
-      skills:
-        - denden
-        - strawpot-session-recap
     default_agent: strawpot-claude-code
 ---
 
