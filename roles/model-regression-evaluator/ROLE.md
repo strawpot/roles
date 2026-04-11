@@ -1,5 +1,6 @@
 ---
 name: model-regression-evaluator
+displayName: Model Regression Evaluator
 description: "Evaluates regression detection reports from the model-regression-agent role. Use when model regression reports need independent validation — checks metric coverage, baseline quality, anomaly detection accuracy, classification correctness, evidence strength, and mitigation relevance."
 metadata:
   strawpot:
