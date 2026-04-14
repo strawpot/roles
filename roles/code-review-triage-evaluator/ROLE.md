@@ -1,6 +1,6 @@
 ---
 name: code-review-triage-evaluator
-description: "Evaluates triage output from the code-review-triage-agent role. Use when PR triage results need independent validation — checks risk classification accuracy, AI signal detection quality, routing correctness, review guide specificity, metrics completeness, and scope boundaries."
+description: "Quality gate for PR triage decisions. Catches misclassifications before they ship bugs (false low-risk) or waste reviewer time (false high-risk), and verifies review guides are specific enough to actually save time."
 metadata:
   strawpot:
     dependencies:

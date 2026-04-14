@@ -1,6 +1,6 @@
 ---
 name: code-review-triage-agent
-description: "Triages pull requests by risk level and routes them to the appropriate review depth. Use when PR volume overwhelms reviewers — classifies PRs as high/medium/low risk based on change type, AI-generation signals, and affected systems, then either fast-tracks low-risk PRs, generates focused review guides for medium-risk, or delegates deep review for high-risk. Tracks review burden metrics. Typically invoked on a schedule or on-demand for a specific PR or queue."
+description: "AI generates code faster than humans can review it. This agent triages your PR queue by risk level — fast-tracks the safe ones, flags AI-generated patterns, and routes high-risk changes to deep review. Reviewers focus where it matters."
 metadata:
   strawpot:
     dependencies:

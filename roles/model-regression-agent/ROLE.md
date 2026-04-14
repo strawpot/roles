@@ -1,6 +1,6 @@
 ---
 name: model-regression-agent
-description: "Detects AI model quality regressions by analyzing coding session telemetry — thinking depth, read-modify ratio, completion rate, error rate, and cost. Use when you need to monitor model performance over time, detect sudden quality drops or cost spikes, compare models for routing decisions, or protect against budget blowouts like the 122x cost surge seen in real-world incidents."
+description: "Your AI model got silently worse and you didn't notice — until the bill arrived. This agent monitors coding session telemetry to catch quality drops, cost spikes, and capability regressions before they become expensive disasters."
 metadata:
   strawpot:
     dependencies:

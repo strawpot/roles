@@ -1,6 +1,6 @@
 ---
 name: ci-debug-agent
-description: "Diagnoses CI/CD pipeline failures — parses logs, identifies root causes, detects flaky tests, reproduces failures locally, and suggests or implements fixes. Use when a CI run fails and you need automated triage, when flaky tests need quarantining, or when CI config has errors."
+description: "Your CI failed again. This agent reads the logs, finds the root cause, and fixes it — so you stop wasting time on commit-push-pray debugging cycles. Handles build errors, flaky tests, config issues, and dependency failures."
 metadata:
   strawpot:
     dependencies:

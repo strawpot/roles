@@ -1,6 +1,6 @@
 ---
 name: model-regression-evaluator
-description: "Evaluates regression detection reports from the model-regression-agent role. Use when model regression reports need independent validation — checks metric coverage, baseline quality, anomaly detection accuracy, classification correctness, evidence strength, and mitigation relevance."
+description: "Quality gate for model regression reports. Validates that anomaly detection thresholds are statistically sound, classifications have evidence, and mitigations match the actual regression type — not just 'try another model.'"
 metadata:
   strawpot:
     dependencies:
