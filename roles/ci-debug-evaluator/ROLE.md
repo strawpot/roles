@@ -1,6 +1,6 @@
 ---
 name: ci-debug-evaluator
-description: "Evaluates ci-debug-agent session output for diagnostic accuracy and completeness. Use when a CI debug session has been completed and needs independent validation before finalizing — checks failure classification accuracy, root cause analysis quality, fix suggestion validity, flaky test detection precision, and overall diagnostic completeness."
+description: "Quality gate for CI debug sessions. Validates that failure classifications match log evidence, root cause analysis traces actual causation, and fix suggestions address the real problem — not just symptoms."
 metadata:
   strawpot:
     default_agent: strawpot-claude-code
